@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}Chirpy{% endblock  %}
+
+
+{% block content %}
+<div class=" display-6 text-center fw-bold text-light mx-auto m-3 p-3 rounded bg-dark" style="width:30rem">
+All Tweets
+</div>
+
+<a class=" text-center btn btn-dark mb-4 ms-3" href="{% url 'tweet_create' %}">Create tweet</a>
+<div class="container row gap-3">
+    {% for tweet in tweets %}
+    <div class="card" style =" width: 16rem;" >
+        <img class="rounded mx-auto d-block m-2 card-img-top"src="{{tweet.photo.url}}" alt="Card Image">
+        <div class="card-body">
+            <h4 class=" fw-bold card-title text-lg">{{tweet.user.username}}</h4>
+            <p class=" card-text text-dark">{{tweet.text}}</p>
+
+            {% if tweet.user == user %}
+            <a href="{% url 'tweet_edit' tweet.id%}" class="btn btn-light border border-dark border border-2 text-dark mb-2">Edit</a>
+            <a href="{% url 'tweet_delete' tweet.id%}" class="btn btn-dark mb-2">Delete</a>
+        {% endif %}
+        
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock  %}

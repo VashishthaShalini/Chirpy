@@ -1,0 +1,82 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirpy - Tweet your heart out</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://www.transparenttextures.com/patterns/doodles.png');
+            background-size: cover;
+        }
+        .chirpy-container {
+            text-align: center;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 90%;
+        }
+        .chirpy-logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .chirpy-title {
+            font-size: 34px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 20px;
+        }
+        .btn-custom {
+            display: inline-block;
+            width: 80%;
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 8px;
+        }
+        .btn-dark {
+            background-color: #000;
+            border: none;
+            color: #fff;
+        }
+        .btn-dark:hover {
+            background-color: #222;
+        }
+        .btn-outline-dark {
+            border: 2px solid #000;
+            color: #000;
+        }
+        .btn-outline-dark:hover {
+            background-color: #000;
+            color: #fff;
+        }
+        .anchor-hover:hover{
+            color: #fff; 
+        }
+    </style>
+</head>
+<body>
+    <div class="chirpy-container">
+        <img src="{%  static 'favicon.png' %}" alt="Chirpy Logo" class="chirpy-logo">
+        <h1 class="chirpy-title">Chirpy - Tweet your heart out</h1>
+        <div class="mt-4">
+            <a href="{% url 'register' %}" class="btn btn-dark btn-custom">Register</a>
+            <button class="btn  btn-custom">Already Registered?<a class="text-decoration-none fw-normal"  href = "{% url 'login' %}"> Login here </a></button>
+        </div>
+    </div>
+</body>
+</html>
